@@ -1,17 +1,89 @@
-# React + Vite
+# Electron React Boilerplate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern boilerplate for building **desktop apps with Electron, React 19, and Vite**.  
 
-Currently, two official plugins are available:
+This setup provides a fast development workflow, hot reload in dev, and easy packaging for production on macOS, Windows, and Linux.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- ⚡ **Fast development** with Vite and React 19
+- 🔌 **Electron integration** for cross-platform desktop apps
+- 🛠 **DevTools in dev mode**
+- 📦 **Production builds** with Electron Builder (DMG, NSIS, AppImage)
+- 🖥 **Customizable preload scripts**
+- 🔒 **Context-isolated Electron window** for security
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# electron-vite-react-boilerplate
+## Prerequisites
+
+- Node.js >= 20
+- npm >= 10
+- macOS / Windows / Linux
+
+---
+
+## Installation
+
+```bash
+git clone <your-repo-url>
+cd electron-react-boilerplate
+npm install
+
+Development
+
+Start the Vite dev server and Electron app simultaneously:
+
+npm run dev
+
+
+The app will open an Electron window.
+
+DevTools are automatically enabled in dev mode.
+
+Hot reload works for both React and Electron changes.
+
+Production Build
+
+Build the React app:
+
+npm run build
+
+
+Package the Electron app:
+
+npm run package
+
+
+Output (macOS DMG example): dist-electron/mac-arm64/ElectronReactBoilerplate-1.0.0-arm64.dmg
+
+Project Structure
+electron-react-boilerplate/
+├─ electron/          # Electron main & preload scripts
+├─ src/               # React source code
+├─ dist/              # React production build (generated)
+├─ dist-electron/     # Electron packaged app output
+├─ package.json       # Project configuration
+└─ vite.config.js     # Vite configuration
+
+Customization
+
+App icon: Replace the default Electron icon in electron/assets/icon.icns
+
+Preload scripts: Modify electron/preload.cjs
+
+Vite base path: Adjust base: './' in vite.config.js if needed
+
+Notes
+
+Use app.getAppPath() for loading production files inside Electron.
+
+base: './' in Vite ensures relative paths for Electron production builds.
+
+Electron Builder handles cross-platform packaging automatically.
+
+License
+
+Blessed Jeberson J Q
