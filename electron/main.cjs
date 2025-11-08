@@ -42,5 +42,3 @@ app.on("activate", () => {
   if (BrowserWindow.getAllWindows().length === 0) createWindow();
 });
 
-// ✅ Empty IPC handlers (boilerplate)
-ipcMain.handle("ping", () => "pong");
